@@ -1,8 +1,8 @@
 <?php
 
-$number = 100;
+$a = 2;
 
 do {
-	echo ("$number\n");
-	$number -= 5;
-} while ($number >= -10);
+	echo "$a\n";
+	$a *= $a;
+} while ($a <= 1000000);
