@@ -39,3 +39,10 @@ if (0 < $x && $x < 10) {
 
 // TODO:
 // repeat the if statement for $y and $z.
+
+if (0 < $y && $y < 10) {
+	echo "0 is less than {$y} AND {$y} is less than 10\n";
+}
+if (0 < $z && $z < 10) {
+	echo "0 is less than {$z} AND {$z} is less than 10\n";
+}
