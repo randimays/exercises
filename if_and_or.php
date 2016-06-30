@@ -14,6 +14,10 @@ if ($x < $y && $y < $z) {
 // If 0 is less than $x OR $x is less than 10
 // then echo the result as a sentence "0 is less than {$x} OR {$x} is less than 10".
 
+if (0 < $x || $x < 10) {
+	echo "0 is less than {$x} OR {$x} is less than 10.";
+}
+
 // TODO:
 // repeat the if statement for $y and $z.
 
