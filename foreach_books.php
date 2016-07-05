@@ -24,5 +24,7 @@ $books = array(
 );
 
 foreach ($books as $book => $detail) {
-	echo "{$book}:\nPublished: {$detail['published']}\nAuthor: {$detail['author']}\nPages: {$detail['pages']}\n\n";
+	if ($detail['published'] > 1950) {
+	echo "{$book}\nPublished: {$detail['published']}\nAuthor: {$detail['author']}\nPages: {$detail['pages']}\n\n";
+	}
 }
