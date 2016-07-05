@@ -1,24 +1,26 @@
 <?php
 
 $random = mt_rand(1, 100);
-$userGuess;
-$numberOfGuesses = 0;
+$guess;
+$guessCount = 0;
+
+fwrite(STDOUT, "Guess a number between 1 and 100.\n");
 
 do {
+	$guessCount++;
 	fwrite(STDOUT, "Guess? ");
-	$userGuess = fgets(STDIN);
-	if ($userGuess > $random) {
+	$guess = trim(fgets(STDIN));
+	if ($guess > $random) {
 		fwrite(STDOUT, "Lower\n");
-	} else {
+	} elseif ($guess < $random) {
 		fwrite(STDOUT, "Higher\n");
+	} else {
+		fwrite(STDOUT, "Good Guess!\n");
 	}
-	$numberOfGuesses++;
-} while ($userGuess != $random);
+} while ($guess != $random);
 
-if ($userGuess == $random) {
-	fwrite(STDOUT, "Good Guess! Guesses: $numberOfGuesses\n");
-	exit(0);
-}
+fwrite(STDOUT, "Total Guesses: $guessCount\n");
+exit(0);
 
 
 
