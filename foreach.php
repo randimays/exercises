@@ -9,7 +9,7 @@ foreach ($things as $thing) {
 			echo "$number " . PHP_EOL;
 		}
 		echo "\n";
-	} else {P_EOL;
+	} else {
+	echo $thing.PHP_EOL;
 	}
-	echo $thing.PH
 }
