@@ -4,11 +4,11 @@ $min = 1;
 $max = 100;
 
 if ($argc >= 3) {
-	if (is_numeric($argv[1]) && is_numeric($argv[2])) {
+	if (is_numeric($argv[1]) && is_numeric($argv[2]) && $argv[1] < $argv[2]) {
 		$min = $argv[1];
 		$max = $argv[2];
 	} else {
-		fwrite(STDERR, "You need to pass 2 numeric values as well.\n");
+		fwrite(STDERR, "You need to pass 2 numeric values; the first is the minimum and the second is the maximum.\n");
 		exit(1);
 	}
 }
