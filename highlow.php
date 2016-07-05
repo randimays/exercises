@@ -1,20 +1,22 @@
 <?php
 
 $min = 1;
-$max = 3;
+$max = 100;
 
-if ($argc === 3 && is_numeric($argv[1]) && is_numeric($argv[2])) {
-	$min = $argv[1];
-	$max = $argv[2];
-} else {
-	fwrite(STDERR, "You need to pass 2 numeric values as well.\n");
-	exit(1);
+if ($argc === 3) {
+	if (is_numeric($argv[1]) && is_numeric($argv[2])) {
+		$min = $argv[1];
+		$max = $argv[2];
+	} else {
+		fwrite(STDERR, "You need to pass 2 numeric values as well.\n");
+		exit(1);
+	}
 }
 
 $random = mt_rand($min, $max);
 $guessCount = 0;
 
-fwrite(STDOUT, "Guess a number between {$argv[1]} and {$argv[2]}. Press ctrl + c to quit.\n");
+fwrite(STDOUT, "Guess a number between $min and $max. Press ctrl + c to quit.\n");
 
 do {
 	$guessCount++;
