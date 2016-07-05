@@ -3,7 +3,7 @@
 $min = 1;
 $max = 100;
 
-if ($argc === 3) {
+if ($argc >= 3) {
 	if (is_numeric($argv[1]) && is_numeric($argv[2])) {
 		$min = $argv[1];
 		$max = $argv[2];
