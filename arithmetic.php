@@ -1,5 +1,8 @@
 <?php
 
+$a = 50;
+$b = 25;
+
 function add($a, $b) {
     return $a + $b;
 }
