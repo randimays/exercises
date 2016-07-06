@@ -31,10 +31,3 @@ do {
 		exit(0);
 	}
 } while ($guess != $random);
-
-
-
-
-
-
-
