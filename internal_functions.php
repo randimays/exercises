@@ -2,21 +2,22 @@
 
 // TODO: Create your inspect() function here
 function inspect($var) {
-	if (is_null($var)) {
-		echo "The value is NULL.\n";
-	} elseif ((is_array($var)) && empty($var)) {
-		echo "The value is an empty array.\n";
+	if (is_array($var) && empty($var)) {
+		return "The array is empty";
 	} elseif (is_array($var)) {
-		echo "The value is an array.\n";
-	} elseif ((is_string($var)) && empty($var)) {
-		echo "The string is empty.\n";
-	} elseif (is_bool($var) && (boolval($var)) == 1) {
-		echo "The boolean is TRUE.\n";
-	} elseif (is_bool($var) && (boolval($var)) == 0) {
-		echo "The boolean is FALSE.\n";
-	} else {
-		echo "The " . gettype($var) . " is {$var}.\n";
+		return "The " . gettype($var) . " is Array (" . join($var, ', ') . ")";
+	} elseif (is_null($var)) {
+		return "The value is NULL.";
+	} elseif (is_bool($var)) {
+		if ($var) {
+			return "The boolean is TRUE";
+		} else {
+			return "The boolean is FALSE";
+		}
+	} elseif (is_string($var) && empty($var)) {
+		return "The value is an empty string";
 	}
+	return "The " . gettype($var) . " is " . $var;
 }
 
 // Do not modify these variables!
@@ -34,35 +35,14 @@ $null = NULL;
 
 // TODO: After each echo statement, use inspect() to output the variable's type and its value
 
-echo 'Inspecting $num1: ';
-inspect($num1);
-
-echo 'Inspecting $num2: ';
-inspect($num2);
-
-echo 'Inspecting $num3: ';
-inspect($num3);
-
-echo 'Inspecting $num4: ';
-inspect($num4);
-
-echo 'Inspecting $null: ';
-inspect($null);
-
-echo 'Inspecting $bool1: ';
-inspect($bool1);
-
-echo 'Inspecting $bool2: ';
-inspect($bool2);
-
-echo 'Inspecting $string1: ';
-inspect($string1);
-
-echo 'Inspecting $string2: ';
-inspect($string2);
-
-echo 'Inspecting $array1: ';
-inspect($array1);
-
-echo 'Inspecting $array2: ';
-inspect($array2);
+echo 'Inspecting $string1: ' . inspect($string1) . PHP_EOL;
+echo 'Inspecting $string2: ' . inspect($string2) . PHP_EOL;
+echo 'Inspecting $array1: ' . inspect($array1) . PHP_EOL;
+echo 'Inspecting $array2: ' . inspect($array2) . PHP_EOL;
+echo 'Inspecting $bool1: ' . inspect($bool1) . PHP_EOL;
+echo 'Inspecting $bool2: ' . inspect($bool2) . PHP_EOL;
+echo 'Inspecting $num1: ' . inspect($num1) . PHP_EOL;
+echo 'Inspecting $num2: ' . inspect($num2) . PHP_EOL;
+echo 'Inspecting $num3: ' . inspect($num3) . PHP_EOL;
+echo 'Inspecting $num4: ' . inspect($num4) . PHP_EOL;
+echo 'Inspecting $null: ' . inspect($null) . PHP_EOL;
