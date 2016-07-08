@@ -47,10 +47,12 @@ $companies = [
 
 ksort($companies);
 
-foreach ($companies as $company => $name) {
-    sort($name);
-    $companies[$company] = $name;
+foreach ($companies as $company => $names) {
+    sort($names);
+    $companies[$company] = $names;
 }
+
+arsort($companies);
 
 print_r($companies);
 
