@@ -2,9 +2,7 @@
 
 function parseContacts($filename) {
 	$contacts = [];
-	$handle = fopen($filename, "r");
-	$contents = trim(fread($handle, filesize($filename)));
-	fclose($handle);
+	$contents = trim(file_get_contents($filename));
 	$contentsArray = explode("\n", $contents);
 	foreach ($contentsArray as $namePhoneString) {
 		$contact = [];
