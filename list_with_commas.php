@@ -18,6 +18,7 @@ $physicistsString = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mall
 
 // TODO: Convert the string into an array
 $physicistsArray = explode(", ", $physicistsString);
+sort($physicistsArray);
 
 // Humanize that list
 $famousFakePhysicists = humanizedList($physicistsArray);
