@@ -1,22 +1,21 @@
 <?php
 
 date_default_timezone_set("America/Chicago");
-$date = date("Y-m-d");
-$time = date("H-i-s");
 
-function logMessage($logLevel, $message, $date, $time) {
-	$handle = fopen("log-" . $date . ".log", "a");
-	fwrite($handle, "{$date} {$time} {$logLevel} {$message}" . PHP_EOL);
-	fclose($handle);
+function logMessage($logLevel, $message) {
+	$filename = "log-" . date("Y-m-d") . ".log";
+	$handle = fopen($filename, "a");
+	$formattedMessage = date("Y-m-d H:i:s") . " [$logLevel] $message";
+	fwrite($handle, $formattedMessage);
 }
 
-function logInfo($date, $time) {
-	logMessage("INFO", "This is an info message.", $date, $time);
+function logInfo($message) {
+	logMessage("INFO", $message);
 }
 
-function logError($date, $time) {
-	logMessage("ERROR", "This is an info message.", $date, $time);
+function logError($message) {
+	logMessage("ERROR", $message);
 }
 
-logInfo($date, $time);
-logError($date, $time);
+logInfo("This is an info message." . PHP_EOL);
+logError("This is an info message." . PHP_EOL);
