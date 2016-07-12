@@ -20,7 +20,6 @@ function alphabetical($array) {
 
 print_r(alphabetical($letters));
 
-
 // alternative solution
 
 $unsorted = $letters;
