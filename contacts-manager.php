@@ -60,16 +60,6 @@ function viewContacts($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $fil
 	$formattedContacts = formatContactsArray($contactsArray);
 	print_r($formattedContacts);
 	routeUser($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename);
-	// $contacts = (createContentsArray($filename));
-	// $contactsTable = [];
-	// $longestName = max($contacts);
-	// $length = strlen($longestName["name"]);
-	// foreach ($contacts as $contact) {
-	// 	$contact["name"] = $name;
-	// 	$contactRow = str_pad($name, $length, " ", STR_PAD_RIGHT);
-	// 	$contactsTable[] = $contactRow;
-	// }
-	// return $contactsTable;
 }
 
 function addContact($contactsArray, $mainMenuMsg, $message, $searchMsg, $deleteMsg, $filename) {
