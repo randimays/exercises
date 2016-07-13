@@ -74,18 +74,24 @@ function viewContacts($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $fil
 
 function addContact($contactsArray, $mainMenuMsg, $message, $searchMsg, $deleteMsg, $filename) {
 	do {
+		$result = searchContact($contactsArray, "Enter the contact's first and last name.\n");
 		$moretoAdd = "";
-		fwrite(STDOUT, $message);
-		$contactName = trim(fgets(STDIN));
+
+		do {
+			fwrite(STDOUT, "There's already a contact with that name.\n");
+			$result = searchContact($contactsArray, "Enter the contact's first and last name.\n");
+		} while (is_numeric($result));
+
 		fwrite(STDOUT, "Enter the contact's 7 or 10 digit phone number with no spaces (ex. 1234567890): \n");
 		$contactNumber = trim(fgets(STDIN));
 		$handle = fopen($filename, "a");
 		fwrite($handle, $contactName . "|" . $contactNumber . PHP_EOL);
 		fclose($handle);
-		$contactsArray[] = $contactName . "|" . $contactNumber; 
+		$contactsArray[] = $contactName . "|" . $contactNumber;
 		fwrite(STDOUT, "Do you have more contacts to add? Type 'y' or 'n'.\n");
 		$moreToAdd = trim(fgets(STDIN));
 	} while($moreToAdd === "y");
+
 	fwrite(STDOUT, "Record created successfully.\n");
 	routeUser($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename);
 }
@@ -107,30 +113,33 @@ function searchContact($contactsArray, $searchMsg) {
 
 function printResults($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename) {
 	$result = searchContact($contactsArray, $searchMsg);
+	if (resultCheck($result, $contactsArray, $searchMsg)) {
+		$formattedContacts = formatContactsArray($contactsArray);
+		print_r($formattedContacts[$result]);
+	}
+		routeUser($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename);
+}
+
+function resultCheck($result, $contactsArray, $searchMsg) {
 	if (!(is_numeric($result))) {
 		do {
 			fwrite(STDOUT, "Contact not found. Please search again.\n");
 			searchContact($contactsArray, $searchMsg);
 		} while (!(is_numeric($result)));
+	} else {
+		return true;
 	}
-	$formattedContacts = formatContactsArray($contactsArray);
-	print_r($formattedContacts[$result]);
-	routeUser($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename);
 }
 
 function deleteContact($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename) {
 	do {
 		$result = searchContact($contactsArray, $searchMsg);
-		if (!(is_numeric($result))) {
-			do {
-				fwrite(STDOUT, "Contact not found. Please search again.\n");
-				searchContact($contactsArray, $searchMsg);
-			} while (!(is_numeric($result)));
+		if (resultCheck($result, $contactsArray, $searchMsg)) {
+			$formattedContacts = formatContactsArray($contactsArray);
+			print_r($formattedContacts[$result]);
+			fwrite(STDOUT, $deleteMsg);
+			$userChoice = trim(fgets(STDIN));
 		}
-		$formattedContacts = formatContactsArray($contactsArray);
-		print_r($formattedContacts[$result]);
-		fwrite(STDOUT, $deleteMsg);
-		$userChoice = trim(fgets(STDIN));
 	} while ($userChoice === 'n');
 	
 	unset($contactsArray[$result]);
