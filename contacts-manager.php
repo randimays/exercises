@@ -111,46 +111,6 @@ function printResults($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $fil
 		routeUser($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename);
 }
 
-// function printResults($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename) {
-// 	$result = searchContact($contactsArray, $searchMsg);
-// 	$formattedContacts = formatContactsArray($contactsArray);
-// 	$contactsTable = [];
-// 	$names = [];
-// 	$numbers = [];
-// 	if (resultCheck($result, $contactsArray, $searchMsg)) {
-// 		foreach ($formattedContacts as $contact) {
-// 			$longestName = max($contact);
-// 			$length = strlen($longestName);
-// 			foreach ($contact as $individual) {
-// 				$names[] = $contact["name"];
-// 				$numbers[] = $contact["number"];
-// 			}
-// 		}
-
-// 		foreach ($numbers as $number) {
-// 			str_pad($number, 13, " ", STR_PAD_RIGHT);
-// 			$contactsTable = [
-// 				"number" => $number
-// 			];
-// 		}
-
-// 		foreach ($names as $name) {
-// 			str_pad($name, $length, " ", STR_PAD_RIGHT);
-// 			$contactsTable = [
-// 				"name" => $name
-// 			];
-// 		}
-// 		var_dump($contactsTable);
-// 		print_r($formattedContacts[$result]);
-// 	}
-// 		routeUser($contactsArray, $mainMenuMsg, $searchMsg, $deleteMsg, $filename);
-
-// 		$contactsTable[] = $contactRow;
-// 	}
-// 	return $contactsTable;
-// 	}
-// }
-
 function resultCheck($result, $contactsArray, $searchMsg) {
 	if (!(is_numeric($result))) {
 		do {
