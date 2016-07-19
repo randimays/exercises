@@ -8,10 +8,10 @@ As described by their website (linked above), Geeks Who Drink is an organization
 
 Next time we're going is Thursday, July 28. We try to go weekly and we'll keep this updated so bookmark this page to keep up with the schedule!
 
-###Who typically goes?
+##Who typically goes?
 A handful of people from the Kings cohort. Any and all are welcome to join us! Bring your spouses, significant others, relatives, etc.
 
-###How to let us know you're coming, or ask questions: 
+##How to let us know you're coming, or ask questions: 
 Via Slack: drop us (@randimays or @anthony.m) a line under the General channel, or send either of us a direct message.
 
 In person: wander over to the big classroom and seek us out!
