@@ -6,7 +6,7 @@ As described by their website (linked above), Geeks Who Drink is an organization
 ##Place/Time
 [South Town 101](https://www.google.com/maps/place/Southtown+101/@29.413105,-98.4904255,17z/data=!3m1!4b1!4m5!3m4!1s0x865c58a63d0da53b:0xc45817dfa7b37585!8m2!3d29.413105!4d-98.4882422), 101 Pereida, 7PM-9PM, Mondays/Thursdays
 
-Next time we're going is Thursday, July 28 (we'll keep this updated so bookmark this page to keep up with the schedule!)
+Next time we're going is Thursday, July 28. We try to go weekly and we'll keep this updated so bookmark this page to keep up with the schedule!
 
 ###Who typically goes?
 A handful of people from the Kings cohort. Any and all are welcome to join us! Bring your spouses, significant others, relatives, etc.
