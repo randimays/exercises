@@ -26,5 +26,6 @@ Thursday, July 28 (we'll keep this updated so bookmark this page to keep up with
 * Popular question categories include but are not limited to current events, geography/landmarks, politics, sports, pop culture, music (mostly from 60s-early 00s), movies/TV (mostly from 80s to present) & celebrities. The final round is literally "random knowledge." Whether you think so or not, your brain will be an asset to your team!
 * You don't need to sign up to play, but we'd appreciate a heads up if you're going to attend and play with other Codeup students so we can plan team sizes accordingly
 
-###How to let us know you're coming:
-Drop us a line on Slack under General.
+###How to let us know you're coming, or ask questions: 
+Via Slack: drop us (@randimays or @anthony.m) a line under the General channel, or send either of us a direct message.
+In person: wander over to the big classroom and seek us out!
