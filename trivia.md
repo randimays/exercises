@@ -28,4 +28,5 @@ Thursday, July 28 (we'll keep this updated so bookmark this page to keep up with
 
 ###How to let us know you're coming, or ask questions: 
 Via Slack: drop us (@randimays or @anthony.m) a line under the General channel, or send either of us a direct message.
+
 In person: wander over to the big classroom and seek us out!
