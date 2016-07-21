@@ -2,6 +2,7 @@
 
 class Log {
 	public $filename;
+	public $handle;
 
 	public function logMessage($level, $message) {
 		$handle = fopen($this->filename, "a");
