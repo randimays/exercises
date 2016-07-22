@@ -14,11 +14,11 @@ class Log {
 		fwrite($this->handle, $formattedMessage);
 	}
 
-	public function info($message) {
+	public static function info($message) {
 		$this->logMessage("INFO", $message);
 	}
 
-	public function error($message) {
+	public static function error($message) {
 		$this->logMessage("ERROR", $message);
 	}
 
