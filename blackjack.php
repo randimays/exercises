@@ -1,14 +1,16 @@
 <?php
 
-// create an array for suits
 $suits = ['C', 'H', 'S', 'D'];
-
-// create an array of values
 $cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+$gameDiv = "------------------------------";
+$gameGap = PHP_EOL;
 
-// build a deck (array) of cards
-// card values should be "VALUE SUIT". ex: "7 H"
-// make sure to shuffle the deck before returning it
+// prints game messages for user
+function gameMessage($message) {
+	fwrite(STDOUT, $message . PHP_EOL);
+}
+
+// build a deck (array) of cards ex: "7 H"
 function buildDeck($suits, $cards) {
 	$deck = [];
 	$fullCard = [];
@@ -51,69 +53,90 @@ function getHandTotal($hand) {
 	return $handTotal;
 }
 
-
 // draw a card from the deck into a hand
-// pass by reference (both hand and deck passed in are modified)
 function drawCard(&$hand, &$deck, $drawNumber) {
-	$hand[] = $deck[array_rand($deck, $drawNumber)];
-	$deck = array_diff($deck, $hand);
+	$card1 = array_rand($deck);
+	$hand[] = $deck[$card1];
+	if ($drawNumber == 2) {
+		$card2 = array_rand($deck);
+		$hand[] = $deck[$card2];
+		unset($deck[$card2]);
+	}
+	unset($deck[$card1]);
 }
 
 // print out a hand of cards
-// name is the name of the player
-// hidden is to initially show only first card of hand (for dealer)
-// output should look like this:
-// Dealer: [4 C] [???] Total: ???
-// or:
-// Player: [J D] [2 D] Total: 12
-
 function echoHand($hand, $name, $hidden = false) {
-	if ($hidden = true) {
+	if ($hidden === true) {
 		$cardString = "[$hand[0]] [???]";
+	} elseif (count($hand) == 2) {
+		$cardString = "[$hand[0]] [$hand[1]]";
 	} else {
-		foreach ($hand as $card) {
-			$cardString += "[$card]";
-		}
+		$cardString = "[$hand[0]] [$hand[1]] [$hand[2]]";
 	}
 	return "$name: $cardString"; 
 }
 
-// build the deck of cards
-$deck = buildDeck($suits, $cards);
+// gameplay
+do {
+	gameMessage("NEW GAME" . PHP_EOL . $gameDiv);
+	$deck = buildDeck($suits, $cards);
+	$dealer = [];
+	$player = [];
 
-// initialize a dealer and player hand
-$dealer = [];
-$player = [];
+	// dealer and player each draw two cards
+	drawCard($dealer, $deck, 2);
+	drawCard($player, $deck, 2);
 
-// dealer and player each draw two cards
-$dealer[] = drawCard($dealer, $deck, 2);
-$player[] = drawCard($dealer, $deck, 2);
+	gameMessage("Dealer and player draw 2 cards each.");
 
-// echo the dealer hand, only showing the first card
-echo (echoHand($dealer, "Dealer", true));
+	// echo the dealer hand, only showing the first card
+	gameMessage(echoHand($dealer, "Dealer", true)); 
 
-// echo the player hand
-echo (echoHand($player, "Player"));
+	// echo the player hand
+	gameMessage(echoHand($player, "Player") . " Total: " . getHandTotal($player) . $gameGap);
 
-// allow player to "(H)it or (S)tay?" till they bust (exceed 21) or stay
-while (getHandTotal($player) < 21) {
-	fwrite(STDOUT, "(H)it or (S)tay?");
-	$response = trim(fgets(STDIN));
-	if ($response == "H") {
-		drawCard($player, $deck, 1);
+	// player is given choice to hit until they bust or stay
+	while (getHandTotal($player) < 21) {
+		gameMessage("(H)it or (S)tay? ");
+		$response = trim(fgets(STDIN));
+		if ($response == "H" || $response == "h") {
+			drawCard($player, $deck, 1);
+			gameMessage(echoHand($player, "Player") . " Total: " . getHandTotal($player));
+		} else {
+			break;
+		}
 	}
-}
 
-// show the dealer's hand (all cards)
-echo (echoHand($dealer, "Dealer"));
+	// show the dealer's hand (all cards)
+	gameMessage(echoHand($dealer, "Dealer") . " Total: " . getHandTotal($dealer));
 
-// todo (all comments below)
-// at this point, if the player has more than 21, tell them they busted
-// otherwise, if they have 21, tell them they won (regardless of dealer hand)
-// if neither of the above are true, then the dealer needs to draw more cards
-// dealer draws until their hand has a value of at least 17
-// show the dealer hand each time they draw a card
-// finally, we can check and see who won
-// by this point, if dealer has busted, then player automatically wins
-// if player and dealer tie, it is a "push"
-// if dealer has more than player, dealer wins, otherwise, player wins
+	// checks if player is at or above 21, and if dealer is over 17
+	if (getHandTotal($player) > 21) {
+		gameMessage("Sorry, you've busted.");
+	} else {
+		while (getHandTotal($dealer) < 17 && getHandTotal($player) != 21) {
+			gameMessage("Dealer's hand is less than 17. Dealer draws again." . $gameGap);
+			drawCard($dealer, $deck, 1);
+			gameMessage(echoHand($dealer, "Dealer") . " Total: " . getHandTotal($dealer));
+		}
+	}
+
+	// game outcome
+	if (getHandTotal($dealer) > 21) {
+		gameMessage("Dealer has busted, you win!");
+	} elseif(getHandTotal($dealer) === getHandTotal($player)) {
+		gameMessage("Dealer and player have tied. Outcome: push.");
+	} else {
+		if ((getHandTotal($dealer) < 21 && getHandTotal($player) < 21) && getHandTotal($dealer) > getHandTotal($player)) {
+			gameMessage("Sorry, dealer wins.");
+		} else {
+			gameMessage("You win!");
+		}
+	}
+	gameMessage("Play again? 'Y' or 'N'");
+	$playAgain = trim(fgets(STDIN));
+	gameMessage($gameDiv) . PHP_EOL;
+} while ($playAgain == 'Y' || $playAgain == 'y');
+
+exit();
