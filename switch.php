@@ -1,5 +1,6 @@
  <?php
 
+// Finish the switch statement to output the day of the week corresponding with the variable, then create a matching if block for the switch statement.
 date_default_timezone_set('America/Chicago');
 
 $dayOfWeek = date('N');
