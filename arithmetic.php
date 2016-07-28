@@ -1,5 +1,7 @@
 <?php
 
+// Create equations that carry out all mathematical operations listed for variables $a and $b given by the user. Validate the arguments and display an error if the user has given invalid data. Validate divide by 0 errors. Make the error messages show the values of the arguments.
+
 function throwErrorMessage($a, $b) {
 	if ($b === 0) {
 		fwrite(STDOUT, "ERROR: You cannot divide by " . $b . ".\n");
