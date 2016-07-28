@@ -12,29 +12,3 @@ function removeVowels($letters, $vowels) {
 }
 
 removeVowels($letters, $vowels);
-
-// Alternative solution 1
-
-// function removeVowels(&$vowels) {
-// 	foreach ($vowels as $index => $vowel) {
-// 		if ($vowel == "a" || $vowel == "e" || $vowel == "i" || $vowel == "o" || $vowel == "u") {
-// 			unset($vowels[$index]);
-// 		}
-// 	}
-// 	return $vowels;
-// }
-
-// removeVowels($letters);
-
-// print_r($letters);
-
-// Alternative solution 2
-
-// $vowels = ["a", "e", "i", "o", "u"];
-// $noVowels = str_replace($vowels, "", implode(",", $letters));
-// print_r(str_split($noVowels));
-
-// Alternative solution 3
-
-// $noVowels = preg_replace("/[aeiou]/", "", $letters);
-// print_r($noVowels);
