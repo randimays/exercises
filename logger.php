@@ -1,5 +1,7 @@
 <?php
 
+// Write functions to create a file log-YYYY-MM-DD.log if it does not exist and add info/error messages inside.
+
 date_default_timezone_set("America/Chicago");
 
 function logMessage($logLevel, $message) {
