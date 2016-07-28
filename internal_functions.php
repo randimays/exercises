@@ -1,5 +1,7 @@
 <?php
 
+// Your inspect function should look at the passed arugment and return a string with the variable's type and its value.
+
 // TODO: Create your inspect() function here
 function inspect($var) {
 	if (is_array($var) && empty($var)) {
@@ -20,7 +22,6 @@ function inspect($var) {
 	return "The " . gettype($var) . " is " . $var;
 }
 
-// Do not modify these variables!
 $string1 = "I'm a little teapot";
 $string2 = '';
 $array1 = [];
