@@ -19,17 +19,3 @@ function alphabetical($array) {
 }
 
 print_r(alphabetical($letters));
-
-// alternative solution
-
-$unsorted = $letters;
-$sorted = [];
-
-foreach ($letters as $index => $letter) {
-	$min = min($unsorted);
-	$sorted[] = $min;
-	$index = array_search($min, $unsorted);
-	unset($unsorted[$index]);
-}
-
-print_r($sorted);
