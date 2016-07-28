@@ -1,5 +1,7 @@
 <?php
 
+// Write a function called combineArrays that will take in two array values as parameters and return a new array with values from both. Be sure all values are unique.
+
 $names = ["Tina", "Dana", "Mike", "Amy", "Adam"];
 $compare = ["Tina", "Dean", "Mel", "Amy", "Michael"];
 $animals = ["cat", "dog", "mouse", "gorilla", "giraffe", "elephant", "kangaroo", "duck"];
