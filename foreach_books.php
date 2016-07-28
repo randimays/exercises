@@ -1,5 +1,7 @@
 <?php
 
+// Construct a loop that iterates through each book and it's key/value pairs. Log its values. Update your loop to show books that were written after 1950.
+
 $books = array(
 	'The Hobbit' => array(
 		'published' => 1937,
