@@ -1,5 +1,7 @@
 <?php
 
+// Add code to output the $companies array in its current form. Sort the array by company name and output. Sort the people in each company alphabetically. Sort the companies from biggest to smallest.
+
 $companies = [
     'Sun Microsystems' => [
         'Vinod Khosla',
