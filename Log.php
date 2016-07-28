@@ -1,5 +1,7 @@
 <?php
 
+// Write functions that will determine a filename for the log and call logMessage, info and error within to test the functionality of each.
+
 class Log {
 	public $handle;
 	public $filename;
