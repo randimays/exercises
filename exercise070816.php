@@ -1,4 +1,7 @@
 <?php
+
+// Create a simple CLI interface to display your friends' books, search by name or exit.
+
 $friends = [
 	[
 		'name' => 'Oliver',
@@ -46,7 +49,11 @@ do {
 	$option = fgets(STDIN);
 	switch ($option) {
 		case 1:
-			// TODO: Implement this one later...
+			foreach ($friends as $friend) {
+				 $name = $friend['name'];
+				 $books = implode(", ", $friend['books']);
+				 fwrite(STDOUT, $name . "'s books: " . $books . PHP_EOL);
+			}
 			break;
 		case 2:
 			echo 'Please enter a name: ';
