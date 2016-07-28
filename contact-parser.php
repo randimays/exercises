@@ -1,5 +1,7 @@
 <?php
 
+// Using a .txt file, complete the function below to output each individual contact as a nicely formatted array.
+
 function parseContacts($filename) {
 	$contacts = [];
 	$contents = trim(file_get_contents($filename));
