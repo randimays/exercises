@@ -18,10 +18,7 @@ if ($b < $c) {
     echo "$b is greater than or equal to $c\n";
 }
 
-// TODO:
-// combine the next 3 conditionals into one
-// if/elseif/else block that checks in order for:
-// identical, equal, not equal/identical
+// TODO: combine the next 3 conditionals into one if/elseif/else block that checks in order for: identical, equal, not equal/identical
 if ($b === $c) {
     echo "$b is identical to $c\n";
 } elseif ($b == $c) {
