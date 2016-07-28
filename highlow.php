@@ -1,5 +1,7 @@
 <?php
 
+// Create a CLI game where a user guesses a number and you tell them whether your number is higher or lower than their guess. Allow the user to enter parameters for the number when running the file via arguments.
+
 $min = 1;
 $max = 100;
 
