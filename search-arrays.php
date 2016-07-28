@@ -1,5 +1,7 @@
 <?php
 
+// Create a function that returns true or false if an array value is found. Search for Tina and Bob in $names. Create a function to compare 2 arrays that returns the number of values in common between the arrays.
+
 $names = ["Tina", "Dana", "Mike", "Amy", "Adam"];
 $compare = ["Tina", "Dean", "Mel", "Amy", "Michael"];
 
