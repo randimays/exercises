@@ -1,5 +1,7 @@
  <?php
 
+ // Create a physicists string that lists physicists and contains an 'and' where appropriate. Turn a solution into a function, humanizedList. You should be able to pass the array as the only parameter. Update your code to list the physicists by first name in alphabetical order. Create a second parameter to make alphabetical sorting optional.
+
 $alphaSort = false;
 $physicistsString = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
 
