@@ -1,5 +1,7 @@
 <?php
 
+// Prompt user for a starting and ending number and log all of the numbers with a loop. Allow the user to choose the increment. Default increment to 1 if no input is given. Be sure you are only allowing numbers to be entered.
+
 $increment = 1;
 
 fwrite(STDOUT, "Enter a starting number: \n");
